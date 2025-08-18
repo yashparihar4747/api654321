@@ -2,7 +2,7 @@ const { MONGO_CLIENT_EVENTS } = require('mongodb');
 const mongoose = require('mongoose');
 
 
-const uri = MONGO_URL || 'mongodb+srv://yashparihar:iErrxSX8RDH8AR3k@cluster0.i2iv3xy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = process.env.MONGO_URI || 'mongodb+srv://yashparihar:iErrxSX8RDH8AR3k@cluster0.i2iv3xy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 const connectDB = async () => {
 mongoose.connect(uri, {
