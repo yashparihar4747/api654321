@@ -17,7 +17,7 @@ exports.userPackages = async (req , res) => {
 
 
         // 1. Basic field check
-        if (!name || !attractions || !pickup || !duration || !description || !price || !rating || !category || !image) {
+        if (!name || !attractions ||  !duration || !description || !price || !rating || !category || !image) {
             return res.status(400).json({
                 status: false,
                 message: "All fields are required"
@@ -25,10 +25,18 @@ exports.userPackages = async (req , res) => {
         }
 
 
-        const newuser = new userpackages({
-            name,
-            placeimage
-        });
+       const newuser = new userpackages({
+  name,
+  attractions,
+  pickup,
+  duration,
+  description,
+  price,
+  rating,
+  category,
+  image,
+});
+
         await newuser.save();
        
                
