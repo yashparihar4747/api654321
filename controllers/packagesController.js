@@ -24,6 +24,12 @@ exports.userPackages = async (req , res) => {
             });
         }
 
+          // Add ₹ if not already included
+        if (!price.toString().startsWith("₹")) {
+            price = `₹${price}`;
+        }
+
+
 
        const newuser = new userpackages({
   name,
@@ -137,6 +143,11 @@ exports.editPackages = async (req, res) => {
                 status: false,
                 message: "All fields are required"
             });
+        }
+
+          // Add ₹ if not already included
+        if (!price.toString().startsWith("₹")) {
+            price = `₹${price}`;
         }
 
         const updatedPackages = await userpackages.findByIdAndUpdate(id, {
