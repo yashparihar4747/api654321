@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Counter = require("./counter");
 
 const user =   new mongoose.Schema({
+     userId: {   
+    type: String,
+    unique: true
+  },
     email:{
         type:String
 
